@@ -421,18 +421,18 @@ jagg.template("application", function (inputs, outputs, jagg) {
 
         function validateApplicationNameChar(value){
             var patternNonAlphaNumExceptHyphen = /[^\w -]/g;
-            var isPattern = patternNonAlphaNumExceptHyphen.test(value);
+            var isPatternMatch = patternNonAlphaNumExceptHyphen.test(value);
             validationFailErrorMsg = "Application Name has invalid characters. Valid characters are a-z A-Z 0-9 -";
 
-            return !isPattern;
+            return !isPatternMatch;
         }
 
         function validationApplicationRevisionChar(value){
             var patternNonAlphaNum = /^(?:(\d{1,2})\.)?(?:(\d{1,2})\.)?(\*|\d{1,2})$/g;
-            var isPattern = patternNonAlphaNum.test(value);
+            var isPatternMatch = patternNonAlphaNum.test(value);
             validationFailErrorMsg = "Invalid version number - Provide version number in format major.minor.patch";
 
-            return isPattern;
+            return isPatternMatch;
         }
 
         function validateRuntimeSelection(value){
