@@ -62,8 +62,8 @@ cp $INSTALL_PATH/$AXIS2_SERVICE $CARBON_HOME_PATH/repository/deployment/server/a
 #Calculate max heap size and the perm size for Java Opts
 #Check whether TOTAL_MEMORY env variable defined or and not empty
 if [[ $TOTAL_MEMORY && ${TOTAL_MEMORY-_} ]]; then
-    let MAX_HEAP_SIZE=$TOTAL_MEMORY/512*256
-    let PERM_SIZE=$TOTAL_MEMORY/512*64
+    let MAX_HEAP_SIZE=$TOTAL_MEMORY/2
+    let PERM_SIZE=$TOTAL_MEMORY/8
     JAVA_OPTS="-Xms128m -Xmx"$MAX_HEAP_SIZE"m -XX:PermSize="$PERM_SIZE"m"
     export JAVA_OPTS=$JAVA_OPTS
 fi

@@ -67,8 +67,8 @@ sed -i '/<Context>/a <JarScanner scanClassPath="false" />' $TOMCAT_HOME_DIR/conf
 #Calculate max heap size and the perm size for Java Opts
 #Check whether TOTAL_MEMORY env variable defined and not empty
 if [[ $TOTAL_MEMORY && ${TOTAL_MEMORY-_} ]]; then
-    let MAX_HEAP_SIZE=$TOTAL_MEMORY/512*256
-    let PERM_SIZE=$TOTAL_MEMORY/512*64
+    let MAX_HEAP_SIZE=$TOTAL_MEMORY/2
+    let PERM_SIZE=$TOTAL_MEMORY/8
     JAVA_OPTS="-Xms128m -Xmx"$MAX_HEAP_SIZE"m -XX:MaxMetaspaceSize=256m"
     export JAVA_OPTS=$JAVA_OPTS
 fi
